@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,23 +36,5 @@ Route::get('/', function () {
     ]);
 });
 
-//  Episode 7: Route Wildcards
-Route::get('/posts/{post}', function ($post) {
-    /* 
-        Setting up some data since we don't have a DB yet
-            This is an Associative Array. Associative arrays are arrays that use named keys that you assign to them.
-    */
-    $posts = [
-        'my-first-post' => 'Hello, this is my first blog post',
-        'my-second-post' => 'Now I am getting the hand of this blogging thing!'
-    ];
-
-    //  If param from the URL is not a key in the posts
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
-
-    return view('post', [
-        'post' => $posts[$post]
-    ]);
-});
+// Episode 8: Route to Controller
+Route::get('/posts/{post}', [PostsController::class, 'show']);

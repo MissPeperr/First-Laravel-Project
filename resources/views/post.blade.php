@@ -10,7 +10,7 @@
 
 <body>
     <h1>Welcome to posts!!</h1>
-    <p>{{ $post }}</p>
+    <p>{{ $post->slug }}</p>
 </body>
 
 </html>
