@@ -38,3 +38,7 @@ Route::get('/', function () {
 
 // Episode 8: Route to Controller
 Route::get('/posts/{post}', [PostsController::class, 'show']);
+
+Route::get('/contact', function () {
+    return view('contact');
+});
